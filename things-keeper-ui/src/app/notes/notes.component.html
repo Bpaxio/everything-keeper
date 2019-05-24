@@ -1,0 +1,24 @@
+<button mat-flat-button color="primary" routerLink='create' class="create-btn">+</button>
+<ul class="grid-row">
+  <li *ngFor="let note of notes$|async" class="grid-col">
+    <div routerLink='{{note.id}}' class="item">
+      <div class="item-inner">
+        <div class="item-header">
+          {{note.title}}
+        </div>
+        <div class="item-body">
+          {{note.description}}
+        </div>
+        <div class="item-bottom">
+          <ul class="grid-row tags-grid">
+            <li *ngFor="let tag of note.tags" class="tags-col">
+              <div class="tagList">
+                {{tag.value}}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

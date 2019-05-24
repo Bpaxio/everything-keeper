@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-tab">
+    <h1>Войти</h1>
+    <form [formGroup]="form" (submit)="login()">
+      <div class="input-control">
+        <mat-form-field hideRequiredMarker>
+          <input matInput appAutofill required formControlName="login" placeholder="Логин" (input)="clearErrorMsg()"/>
+          <mat-error *ngIf="form.get('login').hasError('required')">
+            Поле обязательно для заполнения
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-control">
+        <mat-form-field hideRequiredMarker>
+          <input matInput #password appAutofill required type="password" formControlName="password" placeholder="Пароль" />
+          <mat-error *ngIf="form.get('password').hasError('required')">
+            Поле обязательно для заполнения
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- <button mat-flat-button (click)="create()" class="create-btn">Создать</button> -->
+      <button mat-flat-button color="primary" [disabled]="form.invalid" class="login-btn">Войти</button>
+      <a mat-button routerLink="/register" class="register-btn">Создать</a>
+    </form>
+  </div>
+</div>

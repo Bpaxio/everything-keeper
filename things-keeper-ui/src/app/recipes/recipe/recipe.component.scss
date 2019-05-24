@@ -1,0 +1,40 @@
+@import "./../../variables_main";
+
+.recipe-container {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+		clear: both;
+		width: 100%;
+    overflow: auto;
+    max-width: 1430px;
+  }
+
+  .input-full-width {
+    min-width: 300px;
+    width: 90%;
+    max-width: 800px;
+  }
+
+  .input-textarea-text textarea {
+    min-height: 300px;
+    
+    min-width: 400px;
+    width: 90%;
+    max-width: 1000px;
+  }
+
+  .input-textarea-step textarea {
+    min-height: 50px;
+  }
+
+  .column-left {
+    float: left;
+    width: 49%;
+    border-right: 1px solid $blue;
+  }
+
+  .column-right {
+    float: right;
+    width: 49%;
+  }

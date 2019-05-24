@@ -1,0 +1,34 @@
+<div class="recipe-container">
+  <form [formGroup]="form">
+    <div class="column-left">
+      <div>
+        <mat-form-field class="input-full-width">
+          <input matInput formControlName="title" placeholder="Название">
+        </mat-form-field>
+      </div>
+      
+      <div>
+        <mat-form-field class="input-full-width input-textarea-text">
+          <textarea matInput formControlName="description" placeholder="Описание"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid" (click)="save()">
+          Сохранить
+        </button>
+        <button mat-flat-button type="reset" (click)="cancel()">Отменить</button>
+      </div>
+    </div>
+    <div class="column-right">
+      <div class="step" formArrayName="steps">
+        <div *ngFor="let item of steps.controls; let stepIndex=index" [formGroupName]="stepIndex">
+          <mat-form-field class="input-full-width input-textarea-step">
+            <textarea matInput formControlName="step" placeholder="Шаг {{stepIndex + 1}}"></textarea>
+          </mat-form-field>
+          <button mat-flat-button color="primary" (click)="deleteStep(stepIndex)">-</button>
+        </div>
+        <button mat-flat-button color="primary" (click)="addStep()">+</button>
+      </div>
+    </div>
+  </form>
+</div>
